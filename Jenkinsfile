@@ -7,7 +7,7 @@ node{
         app = docker.build('peter/nginx')
     }
     stage('test image'){
-        docker.image("peter/nginx").withRun('-p 80:80'){ c ->
+        docker.image("peter/nginx").withRun('-p 80:80 -d'){ c ->
             sh 'docker ps'
             sh 'curl localhost'
         }
